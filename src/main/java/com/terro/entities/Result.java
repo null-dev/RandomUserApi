@@ -19,7 +19,6 @@ package com.terro.entities;
 public class Result {
 
     private User user;
-    private String seed;
 
     public Result() {
     }
@@ -32,19 +31,25 @@ public class Result {
         this.user = user;
     }
 
-    public String getSeed() {
-        return seed;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Result result = (Result) o;
+
+        return user != null ? user.equals(result.user) : result.user == null;
     }
 
-    public void setSeed(String seed) {
-        this.seed = seed;
+    @Override
+    public int hashCode() {
+        return user != null ? user.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return "Result{" +
                 "user=" + user +
-                ", seed='" + seed + '\'' +
                 '}';
     }
 }

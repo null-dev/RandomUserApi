@@ -64,4 +64,11 @@ public interface UserService {
     @GET("/")
     public UserRandomResponse userWithSeed (@Query("seed") String seed);
 
+    /**
+     * Return a random user with a nationality
+     *
+     * @param nat - The nationality of the user
+     */
+    @GET("/")
+    public UserRandomResponse userWithNationality (@Query("nat") String nat);
 }

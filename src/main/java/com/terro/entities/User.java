@@ -18,25 +18,28 @@ package com.terro.entities;
 
 public class User {
 
+    private String gender;
     private Name name;
     private Location location;
-    private String gender;
     private String email;
-    private String username;
-    private String password;
-    private String salt;
-    private String cell;
-    private Picture picture;
-    private String md5;
-    private String sha1;
-    private String sha256;
-    private String registered;
+    private Login login;
     private String dob;
+    private String registered;
     private String phone;
-    private String SSN;
-    private String version;
+    private String cell;
+    private Id id;
+    private Picture picture;
+    private String nat;
 
     public User() {
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public Name getName() {
@@ -55,14 +58,6 @@ public class User {
         this.location = location;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -71,76 +66,12 @@ public class User {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public Login getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    public String getCell() {
-        return cell;
-    }
-
-    public void setCell(String cell) {
-        this.cell = cell;
-    }
-
-    public Picture getPicture() {
-        return picture;
-    }
-
-    public void setPicture(Picture picture) {
-        this.picture = picture;
-    }
-
-    public String getMd5() {
-        return md5;
-    }
-
-    public void setMd5(String md5) {
-        this.md5 = md5;
-    }
-
-    public String getSha1() {
-        return sha1;
-    }
-
-    public void setSha1(String sha1) {
-        this.sha1 = sha1;
-    }
-
-    public String getSha256() {
-        return sha256;
-    }
-
-    public void setSha256(String sha256) {
-        this.sha256 = sha256;
-    }
-
-    public String getRegistered() {
-        return registered;
-    }
-
-    public void setRegistered(String registered) {
-        this.registered = registered;
+    public void setLogin(Login login) {
+        this.login = login;
     }
 
     public String getDob() {
@@ -151,6 +82,14 @@ public class User {
         this.dob = dob;
     }
 
+    public String getRegistered() {
+        return registered;
+    }
+
+    public void setRegistered(String registered) {
+        this.registered = registered;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -159,41 +98,91 @@ public class User {
         this.phone = phone;
     }
 
-    public String getSSN() {
-        return SSN;
+    public String getCell() {
+        return cell;
     }
 
-    public void setSSN(String SSN) {
-        this.SSN = SSN;
+    public void setCell(String cell) {
+        this.cell = cell;
     }
 
-    public String getVersion() {
-        return version;
+    public Id getId() {
+        return id;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setId(Id id) {
+        this.id = id;
+    }
+
+    public Picture getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Picture picture) {
+        this.picture = picture;
+    }
+
+    public String getNat() {
+        return nat;
+    }
+
+    public void setNat(String nat) {
+        this.nat = nat;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (gender != null ? !gender.equals(user.gender) : user.gender != null) return false;
+        if (name != null ? !name.equals(user.name) : user.name != null) return false;
+        if (location != null ? !location.equals(user.location) : user.location != null) return false;
+        if (email != null ? !email.equals(user.email) : user.email != null) return false;
+        if (login != null ? !login.equals(user.login) : user.login != null) return false;
+        if (dob != null ? !dob.equals(user.dob) : user.dob != null) return false;
+        if (registered != null ? !registered.equals(user.registered) : user.registered != null) return false;
+        if (phone != null ? !phone.equals(user.phone) : user.phone != null) return false;
+        if (cell != null ? !cell.equals(user.cell) : user.cell != null) return false;
+        if (id != null ? !id.equals(user.id) : user.id != null) return false;
+        if (picture != null ? !picture.equals(user.picture) : user.picture != null) return false;
+        return nat != null ? nat.equals(user.nat) : user.nat == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = gender != null ? gender.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (location != null ? location.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (login != null ? login.hashCode() : 0);
+        result = 31 * result + (dob != null ? dob.hashCode() : 0);
+        result = 31 * result + (registered != null ? registered.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (cell != null ? cell.hashCode() : 0);
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        result = 31 * result + (picture != null ? picture.hashCode() : 0);
+        result = 31 * result + (nat != null ? nat.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "name=" + name +
+                "gender='" + gender + '\'' +
+                ", name=" + name +
                 ", location=" + location +
-                ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", salt='" + salt + '\'' +
-                ", cell='" + cell + '\'' +
-                ", picture='" + picture + '\'' +
-                ", md5='" + md5 + '\'' +
-                ", sha1='" + sha1 + '\'' +
-                ", sha256='" + sha256 + '\'' +
-                ", registered='" + registered + '\'' +
+                ", login=" + login +
                 ", dob='" + dob + '\'' +
+                ", registered='" + registered + '\'' +
                 ", phone='" + phone + '\'' +
-                ", SSN='" + SSN + '\'' +
+                ", cell='" + cell + '\'' +
+                ", id=" + id +
+                ", picture=" + picture +
+                ", nat='" + nat + '\'' +
                 '}';
     }
 }

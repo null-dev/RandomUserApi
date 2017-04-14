@@ -22,49 +22,71 @@ public class Location {
     private String street;
     private String city;
     private String state;
-    private String zip;
+    private String postcode;
 
-        public Location() {
-        }
+    public Location() {
+    }
 
-        public Location(String street, String city, String state, String zip) {
-            this.street = street;
-            this.city = city;
-            this.state = state;
-            this.zip = zip;
-        }
+    public Location(String street, String city, String state, String postcode) {
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.postcode = postcode;
+    }
 
-        public String getStreet() {
-            return street;
-        }
+    public String getStreet() {
+        return street;
+    }
 
-        public void setStreet(String street) {
-            this.street = street;
-        }
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
-        public String getCity() {
-            return city;
-        }
+    public String getCity() {
+        return city;
+    }
 
-        public void setCity(String city) {
-            this.city = city;
-        }
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-        public String getState() {
-            return state;
-        }
+    public String getState() {
+        return state;
+    }
 
-        public void setState(String state) {
-            this.state = state;
-        }
+    public void setState(String state) {
+        this.state = state;
+    }
 
-        public String getZip() {
-            return zip;
-        }
+    public String getPostcode() {
+        return postcode;
+    }
 
-        public void setZip(String zip) {
-            this.zip = zip;
-        }
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Location location = (Location) o;
+
+        if (street != null ? !street.equals(location.street) : location.street != null) return false;
+        if (city != null ? !city.equals(location.city) : location.city != null) return false;
+        if (state != null ? !state.equals(location.state) : location.state != null) return false;
+        return postcode != null ? postcode.equals(location.postcode) : location.postcode == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = street != null ? street.hashCode() : 0;
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (state != null ? state.hashCode() : 0);
+        result = 31 * result + (postcode != null ? postcode.hashCode() : 0);
+        return result;
+    }
 
     @Override
     public String toString() {
@@ -72,7 +94,7 @@ public class Location {
                 "street='" + street + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", zip='" + zip + '\'' +
+                ", postcode='" + postcode + '\'' +
                 '}';
     }
 }

@@ -2,16 +2,12 @@ package com.terro.services;
 
 
 import com.terro.BaseTestCase;
-import com.terro.Gender;
-import com.terro.entities.Result;
 import com.terro.entities.User;
 import com.terro.entities.UserRandomResponse;
 
-import static org.fest.assertions.api.Assertions.assertThat;
-
 public class UserServiceTest extends BaseTestCase {
 
-    public void testUser() throws Exception {
+    /*public void testUser() throws Exception {
 
         UserRandomResponse result = getManager().userServices().user();
         assertThat(result).isNotNull();
@@ -56,19 +52,13 @@ public class UserServiceTest extends BaseTestCase {
             assertThat(user.getGender()).isEqualTo(Gender.FEMALE);
         }
 
-    }
+    }*/
 
-    public void testUserWithSeed() throws Exception {
-        UserRandomResponse response = getManager().userServices().listUsers(20);
+    public void testListUsersWithNat() throws Exception {
+        UserRandomResponse response = getManager().userServices().userWithNationality("nl");
 
-        for (Result result : response.getResults()) {
-            User user = result.getUser();
-            assertThat(user).isNotNull();
-
-            UserRandomResponse responseSeeds = getManager().userServices().userWithSeed(result.getSeed());
-
-            assertThat(responseSeeds.getResults().get(0).getSeed()).isEqualTo(result.getSeed());
-
+        for(User result : response.getResults()) {
+            System.out.println(result);
         }
     }
 }

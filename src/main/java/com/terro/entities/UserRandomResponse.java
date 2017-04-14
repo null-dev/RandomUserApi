@@ -21,17 +21,17 @@ import java.util.List;
 
 public class UserRandomResponse {
 
-    private List<Result> results;
+    private List<User> results;
 
     public UserRandomResponse() {
-        results = new ArrayList<Result>();
+        results = new ArrayList<User>();
     }
 
-    public List<Result> getResults() {
+    public List<User> getResults() {
         return results;
     }
 
-    public void setResults(List<Result> results) {
+    public void setResults(List<User> results) {
         this.results = results;
     }
 
